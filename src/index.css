@@ -1,0 +1,94 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-['Fira_Mono',_monospace] text-green-400 antialiased bg-[#181A20]; /* Terminal: monoespaciada, verde, fondo oscuro */
+    background: radial-gradient(ellipse at 50% 0%, #23272e 60%, #181A20 100%);
+    min-height: 100vh;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+      @apply font-bold text-[#39FF14] drop-shadow-[0_0_6px_#39FF14cc]; /* Verde neón, efecto glow */
+      letter-spacing: 0.02em;
+  }
+
+  section {
+      @apply py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden;
+      background: rgba(24,26,32,0.85);
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 32px #000a, 0 0 0 2px #39FF1440;
+      margin-bottom: 2.5rem;
+      border: 1.5px solid #222c;
+  }
+
+  p {
+      @apply leading-relaxed text-[#baffc9] text-base;
+      text-shadow: 0 0 2px #39FF14cc;
+  }
+
+  code, pre {
+    @apply font-mono text-[#00ffe7] bg-[#23272e] rounded px-2 py-1;
+    box-shadow: 0 0 8px #00ffe755;
+  }
+}
+
+/* Custom Animations (Keep fadeInUp, add slight variations if needed) */
+@layer utilities {
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { /* Simple fade-in */
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  @keyframes scaleIn { /* Scale effect */
+       from { opacity: 0; transform: scale(0.95); }
+       to { opacity: 1; transform: scale(1); }
+   }
+   @keyframes tilt { /* Keep the subtle avatar tilt */
+       0%, 100% { transform: rotate(0deg); }
+       25% { transform: rotate(0.5deg); }
+       75% { transform: rotate(-0.5deg); }
+   }
+   @keyframes terminal-glow {
+      0%, 100% { text-shadow: 0 0 8px #39FF14, 0 0 2px #39FF14; }
+      50% { text-shadow: 0 0 16px #39FF14cc, 0 0 4px #39FF14; }
+   }
+   @keyframes typewriter-cursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+   }
+   @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      45% { opacity: 0.7; }
+      50% { opacity: 0.4; }
+      55% { opacity: 0.7; }
+   }
+
+  /* Animation utilities */
+  .animate-fadeInUp { animation: fadeInUp 0.7s ease-out forwards; }
+  .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+  .animate-scaleIn { animation: scaleIn 0.6s ease-out forwards; }
+  .animate-tilt { animation: tilt 8s infinite linear; }
+  .animate-terminal-glow { animation: terminal-glow 2s infinite alternate; }
+  .animate-typewriter-cursor { animation: typewriter-cursor 1s steps(2) infinite; }
+  .animate-flicker { animation: flicker 1.2s infinite; }
+
+   /* Delays */
+   .animation-delay-100 { animation-delay: 100ms; }
+   .animation-delay-200 { animation-delay: 200ms; }
+   .animation-delay-300 { animation-delay: 300ms; }
+   .animation-delay-400 { animation-delay: 400ms; }
+   .animation-delay-500 { animation-delay: 500ms; }
+   .animation-delay-700 { animation-delay: 700ms; }
+}
