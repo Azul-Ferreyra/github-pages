@@ -235,12 +235,6 @@ function Contact() {
               </div>
             </div>
 
-            <div className="availability">
-              <h4>Disponibilidad</h4>
-              <p>✨ Abierta a oportunidades de colaboración, charlas técnicas y trabajo</p>
-              <p>🎯 Especialmente interesada en roles de DevSecOps y Cloud Security</p>
-              <p>🇪🇸 Buscando oportunidades en España</p>
-            </div>
           </div>
 
           <div className="contact-form">
