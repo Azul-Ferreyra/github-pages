@@ -1,0 +1,162 @@
+.experience {
+  padding: 80px 0;
+  background: var(--aws-white);
+}
+
+.experience-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.experience-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.experience-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.experience-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.experience-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--aws-orange);
+  font-weight: bold;
+}
+
+.experience-highlight,
+.experience-current,
+.experience-internship,
+.experience-community {
+  background: linear-gradient(135deg, var(--aws-blue), var(--aws-blue-light));
+  color: var(--aws-white);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+.experience-highlight p,
+.experience-current p,
+.experience-internship p,
+.experience-community p {
+  color: #eaeded;
+}
+
+.experience-highlight h3,
+.experience-current h3,
+.experience-internship h3,
+.experience-community h3 {
+  color: var(--aws-orange);
+}
+
+.experience-internship {
+  background: linear-gradient(135deg, var(--aws-blue), var(--aws-blue-light));
+}
+
+.experience-highlight h3,
+.experience-current h3 {
+  color: var(--aws-orange);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.experience-highlight p,
+.experience-current p {
+  line-height: 1.6;
+}
+
+/* Location Info */
+.location-info {
+  background: var(--aws-gray-light);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.location-card {
+  background: var(--aws-white);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  text-align: center;
+}
+
+.location-card.target {
+  border-left: 4px solid var(--aws-orange);
+  background: linear-gradient(135deg, var(--aws-white), var(--aws-gray-light));
+}
+
+.location-card h3 {
+  color: var(--aws-blue);
+  margin-bottom: 0.5rem;
+}
+
+.location-card p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.location-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.opportunities {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.opportunities h4 {
+  color: var(--aws-blue);
+  margin-bottom: 1rem;
+}
+
+.opportunity-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.opportunity-tags span {
+  background: var(--aws-orange);
+  color: var(--aws-blue);
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .location-info {
+    order: -1;
+  }
+
+  .experience-highlight,
+  .experience-current {
+    padding: 1.5rem;
+  }
+}
