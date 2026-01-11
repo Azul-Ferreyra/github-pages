@@ -8,6 +8,8 @@ import Content from './components/Content'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CookieConsent from './components/CookieConsent'
+import { initGA, trackPageView } from './analytics'
 
 // Error Boundary para capturar errores de React
 class ErrorBoundary extends Component {
@@ -117,11 +119,32 @@ function App() {
     window.addEventListener('unhandledrejection', handleUnhandledRejection)
     document.addEventListener('securitypolicyviolation', handleCSPViolation)
 
+    // Inicializar Google Analytics
+    initGA()
+
     // Limpieza
     return () => {
       window.removeEventListener('error', handleGlobalError)
       window.removeEventListener('unhandledrejection', handleUnhandledRejection)
       document.removeEventListener('securitypolicyviolation', handleCSPViolation)
+    }
+  }, [])
+
+  // Tracking automático de rutas para SPA
+  useEffect(() => {
+    // Track initial page load
+    trackPageView(window.location.pathname + window.location.search)
+
+    // Track route changes (para navegación interna)
+    const handleRouteChange = () => {
+      trackPageView(window.location.pathname + window.location.search)
+    }
+
+    // Escuchar cambios en el hash (navegación por anclas)
+    window.addEventListener('hashchange', handleRouteChange)
+
+    return () => {
+      window.removeEventListener('hashchange', handleRouteChange)
     }
   }, [])
 
@@ -136,6 +159,7 @@ function App() {
         <Projects />
         <Contact />
         <Footer />
+        <CookieConsent />
       </div>
     </ErrorBoundary>
   )

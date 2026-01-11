@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import './Contact.css'
+import { useAnalytics } from '../hooks/useAnalytics'
 
 function Contact() {
+  const { trackFormSubmit } = useAnalytics()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -145,6 +148,9 @@ function Contact() {
         message: ''
       })
       setErrors({})
+
+      // Track successful form submission
+      trackFormSubmit('contact_form', true)
     } catch (error) {
       console.error('Error al enviar email:', error)
 
