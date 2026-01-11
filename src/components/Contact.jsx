@@ -123,10 +123,10 @@ function Contact() {
     setLastSubmitTime(now)
 
     try {
-      // Configuración de EmailJS
-      const serviceId = 'service_joj64s6'
-      const templateId = 'template_jcrvrau'
-      const publicKey = 'hcAqGD0w-zKNCY5Dh'
+      // Configuración de EmailJS desde variables de entorno
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_joj64s6'
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_jcrvrau'
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'hcAqGD0w-zKNCY5Dh'
 
       // Sanitizar datos finales antes de enviar (solo caracteres peligrosos)
       const templateParams = {

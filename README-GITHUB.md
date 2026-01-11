@@ -143,25 +143,17 @@ github-pages/
 - **Template ID**: De Email Templates
 - **Public Key**: De Account → General
 
-### **5. Configurar en código**
-Actualiza `src/components/Contact.jsx`:
-```javascript
-const serviceId = 'tu_service_id'
-const templateId = 'tu_template_id'
-const publicKey = 'tu_public_key'
-```
-
-### **Variables de Entorno (Opcional)**
-Si prefieres usar variables de entorno en lugar de hardcodear:
+### **5. Configurar credenciales**
+Las credenciales de EmailJS están configuradas via variables de entorno para mayor seguridad:
 
 ```bash
-# Crea .env.local (NO subir a Git)
-EMAILJS_SERVICE_ID=tu_service_id
-EMAILJS_TEMPLATE_ID=tu_template_id
-EMAILJS_PUBLIC_KEY=tu_clave_publica
+# En .env.local (NO subir a Git)
+VITE_EMAILJS_SERVICE_ID=tu_service_id
+VITE_EMAILJS_TEMPLATE_ID=tu_template_id
+VITE_EMAILJS_PUBLIC_KEY=tu_public_key
 ```
 
-**Nota:** Por simplicidad, las credenciales están hardcodeadas en el código actual.
+**Nota:** El código incluye valores por defecto como fallback, pero se recomienda usar variables de entorno para producción.
 
 ## 📊 SEO y Performance
 
@@ -177,7 +169,7 @@ EMAILJS_PUBLIC_KEY=tu_clave_publica
 **✅ Google Analytics está ACTIVADO y funcionando** con consentimiento de cookies y tracking automático.
 
 ### **Estado Actual:**
-- ✅ **Measurement ID**: `G-J7V8SQCXNJ` (configurado)
+- ✅ **Measurement ID**: Configurado via variable de entorno
 - ✅ **Tracking automático** de páginas y navegación SPA
 - ✅ **Eventos personalizados** (formularios, clics, interacciones)
 - ✅ **Consentimiento GDPR** con banner de cookies
@@ -193,6 +185,19 @@ EMAILJS_PUBLIC_KEY=tu_clave_publica
 - ⏱️ **Tiempo en página** y comportamiento
 
 📖 **Guía completa de configuración:** Ver `GOOGLE_ANALYTICS_SETUP.md`
+
+### **Configuración de Variables de Entorno:**
+Para mayor seguridad, las credenciales están en variables de entorno:
+```bash
+# Copia env.local.template como .env.local
+cp env.local.template .env.local
+
+# Configura tus valores en .env.local (NO se sube a Git)
+VITE_GA_MEASUREMENT_ID=G-J7V8SQCXNJ
+VITE_EMAILJS_SERVICE_ID=tu_service_id
+VITE_EMAILJS_TEMPLATE_ID=tu_template_id
+VITE_EMAILJS_PUBLIC_KEY=tu_public_key
+```
 
 ## 🤝 Contribución
 
