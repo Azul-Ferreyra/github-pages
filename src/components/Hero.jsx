@@ -22,7 +22,7 @@ function Hero() {
       <div className="hero-container">
         <div className="hero-content">
           <div className="profile-image">
-            <img src="/github-pages/rostro.png" alt="Azul Ferreyra - Anzur" />
+            <img src="/rostro.png" alt="Azul Ferreyra - Anzur" />
           </div>
 
           <div className="hero-text">
