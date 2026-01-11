@@ -2,7 +2,14 @@
 import ReactGA from 'react-ga4'
 
 // Tu Measurement ID de Google Analytics 4
-// Reemplaza 'G-XXXXXXXXXX' con tu ID real de GA4
+// Opción 1: Hardcodeado (recomendado para portfolio personal)
+// const GA_MEASUREMENT_ID = 'G-J7V8SQCXNJ'
+
+// Opción 2: Variable de entorno (más seguro para equipos)
+// Descomenta la línea siguiente si prefieres usar variables de entorno:
+// const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-J7V8SQCXNJ'
+
+// Por ahora usamos hardcodeado (es seguro para portfolio personal):
 const GA_MEASUREMENT_ID = 'G-J7V8SQCXNJ'
 
 // Inicializar Google Analytics
