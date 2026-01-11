@@ -58,6 +58,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -66,10 +69,10 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
-    - uses: peaceiris/actions-gh-pages@v4
+    - uses: actions/configure-pages@v4
+    - uses: actions/deploy-pages@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+        folder: ./dist
 ```
 
 ### **Deploy Manual (Opcional)**
@@ -168,6 +171,24 @@ EMAILJS_PUBLIC_KEY=tu_clave_publica
 - ✅ **Gzip compression** automático
 - ✅ **Code splitting** inteligente
 - ✅ **Lazy loading** de componentes
+
+## 📊 Google Analytics 4
+
+**Google Analytics está completamente integrado** con consentimiento de cookies y tracking automático.
+
+### **Configuración Rápida:**
+1. **Obtén tu Measurement ID** de Google Analytics (`G-XXXXXXXXXX`)
+2. **Edita** `src/analytics.js` y reemplaza el ID
+3. **¡Listo!** Recibe datos automáticamente
+
+📖 **Guía completa:** Ver `GOOGLE_ANALYTICS_SETUP.md`
+
+### **Características:**
+- ✅ **Tracking automático** de páginas y navegación SPA
+- ✅ **Eventos personalizados** (formularios, clics, interacciones)
+- ✅ **Consentimiento GDPR** con banner de cookies
+- ✅ **Anonimización de IP** automática
+- ✅ **Opt-out fácil** para usuarios
 
 ## 🤝 Contribución
 
