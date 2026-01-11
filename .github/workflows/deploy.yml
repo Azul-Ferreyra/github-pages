@@ -14,8 +14,6 @@ jobs:
     steps:
     - name: 📥 Checkout repository
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     - name: 🟢 Setup Node.js
       uses: actions/setup-node@v4
@@ -37,22 +35,9 @@ jobs:
     - name: 📋 Verify build output
       run: ls -la dist/
 
-    - name: 🚀 Deploy to gh-pages branch
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-        # Crear branch gh-pages si no existe
-        git checkout -b gh-pages || git checkout gh-pages
-
-        # Copiar archivos del dist al root del branch
-        cp -r dist/* .
-        rm -rf dist
-
-        # Crear .nojekyll para que GitHub Pages procese correctamente
-        touch .nojekyll
-
-        # Commit y push
-        git add .
-        git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
-        git push origin gh-pages --force
+    - name: 🚀 Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        cname: azul-ferreyra.github.io
