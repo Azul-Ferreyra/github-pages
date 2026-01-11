@@ -2,8 +2,8 @@
 import ReactGA from 'react-ga4'
 
 // Google Analytics 4 Measurement ID
-// Usamos variable de entorno para mayor seguridad
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-J7V8SQCXNJ'
+// Solo funciona con variable de entorno configurada
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID
 
 // Inicializar Google Analytics
 export const initGA = () => {
