@@ -187,17 +187,23 @@ VITE_EMAILJS_PUBLIC_KEY=tu_public_key
 📖 **Guía completa de configuración:** Ver `GOOGLE_ANALYTICS_SETUP.md`
 
 ### **Configuración de Variables de Entorno:**
-Para mayor seguridad, las credenciales están en variables de entorno:
+Para **máxima seguridad**, las credenciales están en variables de entorno (sin fallbacks hardcodeados):
 ```bash
 # Copia env.local.template como .env.local
 cp env.local.template .env.local
 
-# Configura tus valores en .env.local (NO se sube a Git)
-VITE_GA_MEASUREMENT_ID=G-J7V8SQCXNJ
-VITE_EMAILJS_SERVICE_ID=tu_service_id
-VITE_EMAILJS_TEMPLATE_ID=tu_template_id
-VITE_EMAILJS_PUBLIC_KEY=tu_public_key
+# Configura tus valores reales en .env.local (NO se sube a Git)
+VITE_GA_MEASUREMENT_ID=tu_measurement_id_real
+VITE_EMAILJS_SERVICE_ID=tu_service_id_real
+VITE_EMAILJS_TEMPLATE_ID=tu_template_id_real
+VITE_EMAILJS_PUBLIC_KEY=tu_public_key_real
 ```
+
+### **Importante sobre Seguridad:**
+- ✅ **Sin credenciales hardcodeadas** en el código fuente
+- ✅ **Sin fallbacks expuestos** en producción
+- ✅ **Variables de entorno requeridas** para funcionamiento
+- ✅ **Archivos .env.local protegidos** por .gitignore
 
 ## 🤝 Contribución
 
