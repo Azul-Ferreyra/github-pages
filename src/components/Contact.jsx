@@ -181,7 +181,13 @@ function Contact() {
         errorMessage += 'Por favor, intenta de nuevo o usa el fallback.'
       }
 
-      setStatus(errorMessage)
+      const detail = typeof error?.text === 'string'
+        ? ` Detalle: ${error.text}`
+        : error?.status
+          ? ` Código: ${error.status}`
+          : ''
+
+      setStatus(errorMessage + detail)
 
       // Fallback seguro: abrir cliente de email solo con datos sanitizados
       setTimeout(() => {
