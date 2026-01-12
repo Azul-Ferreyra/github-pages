@@ -72,15 +72,27 @@
   line-height: 1.6;
 }
 
+.blog-content {
+  margin: 8px 0 12px 0;
+  color: #c9d6e5;
+  line-height: 1.6;
+}
+
 .blog-link {
-  color: #7dd8ff;
+  color: #0c223a;
+  background: #7dd8ff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
   font-weight: 600;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .blog-link:hover {
-  color: #b7e8ff;
+  background: #b7e8ff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 190, 255, 0.25);
 }
 
 @media (max-width: 600px) {
