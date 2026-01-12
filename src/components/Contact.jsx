@@ -143,18 +143,22 @@ function Contact() {
       const safeSubject = formData.subject.replace(/[<>]/g, '')
       const safeMessage = formData.message.replace(/[<>]/g, '')
 
-      // Enviar múltiples aliases para mayor compatibilidad con la plantilla
+      // Enviar múltiples aliases para mayor compatibilidad con la plantilla de EmailJS
+      // Ajusta aquí si tu template espera campos específicos.
       const templateParams = {
         from_name: safeName,
+        user_name: safeName,
+        name: safeName,
         from_email: safeEmail,
+        user_email: safeEmail,
+        email: safeEmail,
         reply_to: safeEmail,
         to_email: 'info.anzur@gmail.com',
-        user_subject: safeSubject,
+        to_name: 'Anzur',
         subject: safeSubject,
+        user_subject: safeSubject,
         message: safeMessage,
         mensaje: safeMessage,
-        name: safeName,
-        email: safeEmail,
       }
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
@@ -181,7 +185,7 @@ function Contact() {
       } else if (error.text?.includes('invalid')) {
         errorMessage += 'Datos inválidos. Verifica tu información.'
       } else if (error.status === 400) {
-        errorMessage += 'Solicitud inválida (400). Revisa los campos requeridos del template en EmailJS.'
+        errorMessage += 'Solicitud inválida (400). Revisa los campos requeridos del template en EmailJS y que los IDs sean correctos.'
       } else {
         errorMessage += 'Por favor, intenta de nuevo o usa el fallback.'
       }

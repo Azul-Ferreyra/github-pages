@@ -7,21 +7,21 @@ function Blog() {
       date: 'Ene 2026',
       tags: ['Cloud', 'Seguridad', 'Zero Trust'],
       description: 'Checklist accionable para endurecer identidades, redes y datos en AWS sin fricción para los equipos.',
-      link: 'https://medium.com/@azul.r.ferreyra'
+      link: '#contact'
     },
     {
       title: 'Playbooks SOC listos para usar',
       date: 'Dic 2025',
       tags: ['SOC', 'Automatización', 'IR'],
       description: 'Playbooks y runbooks para phishing, ransomware y abuso de credenciales con foco en rapidez y trazabilidad.',
-      link: 'https://medium.com/@azul.r.ferreyra'
+      link: '#contact'
     },
     {
       title: 'Hardening de pipelines CI/CD',
       date: 'Nov 2025',
       tags: ['DevSecOps', 'CI/CD', 'K8s'],
       description: 'Cómo proteger secretos, firmas y despliegues en pipelines multiambiente sin romper el flujo de delivery.',
-      link: 'https://medium.com/@azul.r.ferreyra'
+      link: '#contact'
     }
   ]
 
