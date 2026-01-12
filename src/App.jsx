@@ -6,6 +6,7 @@ import Services from './components/Services'
 import Experience from './components/Experience'
 import Content from './components/Content'
 import Projects from './components/Projects'
+import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CookieConsent from './components/CookieConsent'
@@ -157,6 +158,7 @@ function App() {
         <Experience />
         <Content />
         <Projects />
+        <Blog />
         <Contact />
         <Footer />
         <CookieConsent />
