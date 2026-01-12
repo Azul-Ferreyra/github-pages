@@ -143,22 +143,13 @@ function Contact() {
       const safeSubject = formData.subject.replace(/[<>]/g, '')
       const safeMessage = formData.message.replace(/[<>]/g, '')
 
-      // Enviar múltiples aliases para mayor compatibilidad con la plantilla de EmailJS
-      // Ajusta aquí si tu template espera campos específicos.
+      // Enviar solo los campos que usa tu plantilla en EmailJS
       const templateParams = {
-        from_name: safeName,
-        user_name: safeName,
-        name: safeName,
-        from_email: safeEmail,
-        user_email: safeEmail,
-        email: safeEmail,
-        reply_to: safeEmail,
-        to_email: 'info.anzur@gmail.com',
-        to_name: 'Anzur',
-        subject: safeSubject,
-        user_subject: safeSubject,
-        message: safeMessage,
-        mensaje: safeMessage,
+        from_name: safeName,       // {{from_name}}
+        from_email: safeEmail,     // {{from_email}} y Reply To
+        reply_to: safeEmail,       // Reply To
+        user_subject: safeSubject, // {{user_subject}}
+        message: safeMessage       // {{message}} / content
       }
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
