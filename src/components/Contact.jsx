@@ -138,13 +138,23 @@ function Contact() {
       }
 
       // Sanitizar datos finales antes de enviar (solo caracteres peligrosos)
+      const safeName = formData.name.replace(/[<>]/g, '')
+      const safeEmail = formData.email.replace(/[<>]/g, '')
+      const safeSubject = formData.subject.replace(/[<>]/g, '')
+      const safeMessage = formData.message.replace(/[<>]/g, '')
+
+      // Enviar múltiples aliases para mayor compatibilidad con la plantilla
       const templateParams = {
-        from_name: formData.name.replace(/[<>]/g, ''),
-        from_email: formData.email.replace(/[<>]/g, ''),
-        user_subject: formData.subject.replace(/[<>]/g, ''),
-        message: formData.message.replace(/[<>]/g, ''),
-        reply_to: formData.email.replace(/[<>]/g, ''),
-        to_email: 'info.anzur@gmail.com'
+        from_name: safeName,
+        from_email: safeEmail,
+        reply_to: safeEmail,
+        to_email: 'info.anzur@gmail.com',
+        user_subject: safeSubject,
+        subject: safeSubject,
+        message: safeMessage,
+        mensaje: safeMessage,
+        name: safeName,
+        email: safeEmail,
       }
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
@@ -170,6 +180,8 @@ function Contact() {
         errorMessage += 'Has enviado demasiados mensajes. Inténtalo más tarde.'
       } else if (error.text?.includes('invalid')) {
         errorMessage += 'Datos inválidos. Verifica tu información.'
+      } else if (error.status === 400) {
+        errorMessage += 'Solicitud inválida (400). Revisa los campos requeridos del template en EmailJS.'
       } else {
         errorMessage += 'Por favor, intenta de nuevo o usa el fallback.'
       }
