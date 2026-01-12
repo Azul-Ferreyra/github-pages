@@ -23,6 +23,11 @@
   font-weight: bold;
   color: var(--aws-orange);
 }
+.logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
 
 .nav-links {
   display: flex;
@@ -102,6 +107,10 @@
 
   .nav-brand .logo {
     font-size: 1.25rem;
+  }
+
+  .logo-img {
+    height: 32px;
   }
 
   .nav-toggle {

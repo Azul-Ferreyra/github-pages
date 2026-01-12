@@ -11,7 +11,7 @@ function Header() {
     <header className="header">
       <nav className="nav">
         <div className="nav-brand">
-          <span className="logo">Anzur</span>
+          <img src="/logo.png" alt="Anzur logo" className="logo-img" />
         </div>
 
         <button
