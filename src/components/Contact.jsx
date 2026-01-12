@@ -154,7 +154,7 @@ function Contact() {
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
 
-      setStatus('Mensaje enviado exitosamente! 🎉')
+      setStatus('Mensaje enviado exitosamente.')
       setFormData({
         name: '',
         email: '',

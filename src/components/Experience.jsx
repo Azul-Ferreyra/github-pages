@@ -24,9 +24,9 @@ function Experience() {
             <div className="experience-internship">
               <h3>Prácticas Profesionales</h3>
               <p>
-                Realicé prácticas en una empresa donde me encargué del control de calidad (QA)
-                para una herramienta SOAR. Durante esta experiencia adquirí conocimientos sólidos en
-                metodologías SCRUM/Agile, contribuyendo al desarrollo y testing de soluciones de ciberseguridad.
+                Realicé prácticas en una empresa de Estados Unidos, donde me encargué del control de calidad (QA)
+                para una herramienta SOAR. Durante esta experiencia adquirí conocimientos sólidos en metodologías
+                SCRUM/Agile, contribuyendo al desarrollo y testing de soluciones de ciberseguridad.
               </p>
             </div>
 
