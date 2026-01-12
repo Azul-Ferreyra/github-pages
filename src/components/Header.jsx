@@ -16,6 +16,7 @@ function Header() {
             alt="Anzur logo"
             className="logo-img"
           />
+          <span className="logo-text">Anzur</span>
         </div>
 
         <button
