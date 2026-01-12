@@ -11,7 +11,11 @@ function Header() {
     <header className="header">
       <nav className="nav">
         <div className="nav-brand">
-          <img src="/logo.png" alt="Anzur logo" className="logo-img" />
+          <img
+            src={`${import.meta.env.BASE_URL}logo.png`}
+            alt="Anzur logo"
+            className="logo-img"
+          />
         </div>
 
         <button
