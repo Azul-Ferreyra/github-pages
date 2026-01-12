@@ -4,7 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/github-pages/', // Base path solo para producción
+  // Base para GitHub Pages en ruta /github-pages/
+  base: '/github-pages/',
   build: {
     // Minificar y optimizar
     minify: 'terser',
