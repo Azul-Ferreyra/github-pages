@@ -128,9 +128,13 @@ function Contact() {
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-      // Verificar que todas las credenciales estén configuradas
+      // Verificar que todas las credenciales estén configuradas; si faltan, usar fallback inmediato
       if (!serviceId || !templateId || !publicKey) {
-        throw new Error('EmailJS no está configurado. Configura las variables de entorno.')
+        setStatus('EmailJS no está configurado. Abriendo tu cliente de correo…')
+        const safeSubject = encodeURIComponent(formData.subject.replace(/[<>]/g, ''))
+        const safeBody = encodeURIComponent(`Nombre: ${formData.name.replace(/[<>]/g, '')}\nEmail: ${formData.email.replace(/[<>]/g, '')}\n\nMensaje:\n${formData.message.replace(/[<>]/g, '')}`)
+        window.location.href = `mailto:info.anzur@gmail.com?subject=${safeSubject}&body=${safeBody}`
+        return
       }
 
       // Sanitizar datos finales antes de enviar (solo caracteres peligrosos)
