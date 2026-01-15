@@ -1,0 +1,629 @@
+.mantis-page {
+  background: linear-gradient(180deg, #f8fafc 0%, var(--aws-white) 35%, var(--aws-white) 100%);
+  color: var(--text-primary);
+}
+
+.mantis-hero {
+  padding: 110px 0 80px;
+  background: var(--aws-blue-dark);
+  color: var(--aws-white);
+}
+
+.mantis-hero-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.mantis-hero-text h1 {
+  font-size: 4.2rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--aws-orange), #ffb84d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  padding-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.mantis-vision {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: #d6e2f1;
+  max-width: 560px;
+}
+
+.mantis-hero-image {
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(19, 25, 33, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  justify-self: center;
+  position: relative;
+}
+
+.mantis-hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+.mantis-hero-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.mantis-calendar {
+  padding: 120px 0;
+  background: var(--aws-gray-light);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.mantis-calendar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.mantis-calendar-embed .section-title {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+}
+
+.mantis-calendar-header {
+  margin-bottom: 1rem;
+}
+
+.mantis-calendar-icon {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--aws-orange);
+}
+
+.mantis-calendar-note {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.calendar-frame {
+  background: #ffffff;
+  padding: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.calendar-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.mantis-culture {
+  padding: 60px 0 70px;
+  background: var(--aws-white);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.mantis-culture-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--aws-blue);
+  margin-bottom: 0.5rem;
+}
+
+.mantis-culture-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.mantis-culture-row {
+  margin-bottom: 2rem;
+}
+
+.mantis-culture-row:last-of-type {
+  margin-bottom: 0;
+}
+
+.mantis-culture-row-title {
+  text-align: center;
+  color: var(--aws-blue);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.mantis-culture-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem 2rem;
+}
+
+.mantis-culture-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--aws-blue);
+  min-width: 92px;
+}
+
+.mantis-culture-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--aws-blue);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mantis-culture-item:hover .mantis-culture-logo {
+  transform: scale(1.1);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16);
+}
+
+.mantis-culture-name {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.mantis-news {
+  padding: 120px 0 140px;
+  background: #f8fafc;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.mantis-resources {
+  padding: 80px 0;
+  background: var(--aws-white);
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.mantis-resources-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--aws-blue);
+  margin-bottom: 0.5rem;
+}
+
+.mantis-resources-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.mantis-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.mantis-resources-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem 0.75rem;
+  background: var(--aws-white);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--aws-blue);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.mantis-resources-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+  border-color: var(--aws-orange);
+}
+
+.mantis-resources-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--aws-blue);
+}
+
+.mantis-resources-name {
+  font-size: 0.9rem;
+  color: var(--aws-blue);
+  text-align: center;
+}
+
+.mantis-resources-badge {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(35, 47, 62, 0.08);
+  color: var(--text-secondary);
+}
+
+.mantis-opportunities {
+  padding: 110px 0 120px;
+  background: linear-gradient(180deg, rgba(19, 39, 53, 0.95), rgba(27, 39, 53, 0.95));
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--aws-white);
+}
+
+.mantis-opportunities-title {
+  text-align: center;
+  font-size: 2.4rem;
+  color: var(--aws-white);
+  margin-bottom: 0.75rem;
+}
+
+.mantis-opportunities-subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 720px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.6;
+}
+
+.mantis-opportunities-carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.mantis-opportunities-carousel:hover .mantis-opportunities-track {
+  animation-play-state: paused;
+}
+
+.mantis-opportunities-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: mantis-carousel 40s linear infinite;
+}
+
+.mantis-opportunity-card {
+  background: var(--aws-white);
+  color: var(--text-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(19, 25, 33, 0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex: 0 0 320px;
+  min-height: 360px;
+  transition: box-shadow 0.25s ease, transform 0.35s ease;
+}
+
+.mantis-opportunity-card.is-open {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(19, 25, 33, 0.22);
+}
+
+.mantis-opportunity-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mantis-opportunity-badge {
+  background: rgba(139, 92, 246, 0.15);
+  color: #6d28d9;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.mantis-opportunity-title {
+  color: var(--aws-blue);
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.mantis-opportunity-org {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.mantis-opportunity-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mantis-opportunity-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.mantis-opportunity-summary {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+  overflow: hidden;
+  max-height: 4.8rem;
+  transition: max-height 0.8s ease-in-out;
+}
+
+.mantis-opportunity-card.is-open .mantis-opportunity-summary {
+  overflow: visible;
+  max-height: 480px;
+}
+
+.mantis-opportunity-toggle {
+  background: transparent;
+  color: var(--aws-blue);
+  border: none;
+  padding: 0;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.mantis-opportunity-toggle:hover {
+  color: var(--aws-orange);
+}
+
+.mantis-opportunity-expand {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.mantis-opportunity-expand.is-open {
+  max-height: 160px;
+  opacity: 1;
+}
+
+.mantis-opportunity-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--aws-orange);
+  color: #111827;
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mantis-opportunity-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(255, 153, 0, 0.35);
+}
+
+.tagembed-widget .tagembed-card,
+.tagembed-widget .tagembed-post,
+.tagembed-widget .tagembed-item,
+.tagembed-widget [class*="card"] {
+  border-radius: 16px !important;
+}
+
+
+.tagembed-widget .tagembed-filters button,
+.tagembed-widget .tagembed-filter button,
+.tagembed-widget button.tagembed-filter-btn,
+.tagembed-widget button[class*="filter"] {
+  border: 1px solid #ff9900 !important;
+  background: transparent !important;
+  color: #b45309 !important;
+  border-radius: 999px !important;
+  padding: 0.4rem 0.9rem !important;
+  font-weight: 600 !important;
+}
+
+.tagembed-widget .tagembed-filters button.active,
+.tagembed-widget .tagembed-filter button.active,
+.tagembed-widget button.tagembed-filter-btn.active,
+.tagembed-widget button[class*="filter"].active,
+.tagembed-widget .tagembed-filters button[aria-pressed="true"],
+.tagembed-widget .tagembed-filter button[aria-pressed="true"],
+.tagembed-widget button[class*="filter"][aria-pressed="true"] {
+  background: #ff9900 !important;
+  color: #111827 !important;
+}
+
+.mantis-news-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto 32px auto;
+  line-height: 1.6;
+}
+
+.mantis-news-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.mantis-news-card {
+  background: var(--aws-white);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 24px var(--shadow);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mantis-news-meta {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.mantis-news-card h3 {
+  color: var(--aws-blue);
+  margin: 0;
+}
+
+.mantis-news-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.mantis-news-link {
+  margin-top: auto;
+  color: var(--aws-orange);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mantis-news-link:hover {
+  color: var(--aws-blue);
+}
+
+.mantis-faq {
+  padding: 100px 0 120px;
+  background: var(--aws-gray-light);
+}
+
+.mantis-faq-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--aws-blue);
+  margin-bottom: 2rem;
+}
+
+.mantis-faq-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.mantis-faq-item {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mantis-faq-question {
+  width: 100%;
+  background: var(--aws-blue-dark);
+  color: var(--aws-white);
+  border: none;
+  padding: 1.1rem 1.25rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.mantis-faq-question:hover {
+  color: var(--aws-orange);
+}
+
+.mantis-faq-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.mantis-faq-answer {
+  margin: 0;
+  padding: 1rem 1.25rem 1.25rem;
+  background: var(--aws-blue);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .mantis-hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .mantis-calendar-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .mantis-hero-text h1 {
+    font-size: 3rem;
+  }
+
+  .mantis-opportunity-card {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .mantis-opportunities-carousel {
+    overflow: visible;
+  }
+
+  .mantis-opportunities-track {
+    animation: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .mantis-opportunity-card.is-duplicate {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mantis-opportunities-track {
+    animation: none;
+  }
+}
+
+@keyframes mantis-carousel {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

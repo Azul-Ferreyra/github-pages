@@ -33,14 +33,14 @@
   height: 250px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(19, 25, 33, 0.25);
   border: 5px solid var(--aws-orange);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-image:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 153, 0, 0.3);
+  box-shadow: 0 12px 40px rgba(19, 25, 33, 0.35), 0 0 20px rgba(255, 153, 0, 0.3);
 }
 
 .profile-image img {

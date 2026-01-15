@@ -18,7 +18,7 @@ function Hero() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   return (
-    <section className="hero">
+    <section id="inicio" className="hero">
       <div className="hero-container">
         <div className="hero-content">
           <div className="profile-image">

@@ -32,6 +32,10 @@
   color: var(--aws-gray-light);
 }
 
+.footer-location {
+  text-align: center;
+}
+
 .footer-section a {
   color: var(--aws-white);
   text-decoration: none;

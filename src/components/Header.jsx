@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 function Header() {
@@ -10,14 +11,14 @@ function Header() {
   return (
     <header className="header">
       <nav className="nav">
-        <div className="nav-brand">
+        <Link to="/#inicio" className="nav-brand" onClick={closeMenu}>
           <img
             src={`${import.meta.env.BASE_URL}logo.png`}
             alt="Anzur logo"
             className="logo-img"
           />
           <span className="logo-text">Anzur</span>
-        </div>
+        </Link>
 
         <button
           className={`nav-toggle ${open ? 'open' : ''}`}
@@ -30,11 +31,13 @@ function Header() {
         </button>
 
         <ul className={`nav-links ${open ? 'show' : ''}`}>
-          <li><a href="#services" onClick={closeMenu}>Servicios</a></li>
-          <li><a href="#experience" onClick={closeMenu}>Experiencia</a></li>
-          <li><a href="#content" onClick={closeMenu}>Contenido</a></li>
-          <li><a href="#projects" onClick={closeMenu}>Proyectos</a></li>
-          <li><a href="#contact" onClick={closeMenu}>Contacto</a></li>
+          <li><Link to="/#services" onClick={closeMenu}>Servicios</Link></li>
+          <li><Link to="/#experience" onClick={closeMenu}>Experiencia</Link></li>
+          <li><Link to="/#content" onClick={closeMenu}>Contenido</Link></li>
+          <li><Link to="/#projects" onClick={closeMenu}>Proyectos</Link></li>
+          <li><Link to="/espacio-mantis" onClick={closeMenu}>Espacio Mantis</Link></li>
+          <li><Link to="/blog" onClick={closeMenu}>Blog</Link></li>
+          <li><Link to="/#contact" onClick={closeMenu}>Contacto</Link></li>
         </ul>
       </nav>
     </header>

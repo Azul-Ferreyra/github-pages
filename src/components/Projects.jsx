@@ -74,7 +74,7 @@ function Projects() {
       <div className="container">
         <h2 className="section-title">Proyectos & Contenido</h2>
 
-        <div className="projects-section">
+        <div id="videos" className="projects-section">
           <h3>📁 Repositorios en GitHub</h3>
           <div className="github-grid">
             {githubRepos.map((repo, index) => (

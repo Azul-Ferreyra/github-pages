@@ -1,7 +1,7 @@
 .blog {
   padding: 80px 0;
-  background: #0b1626;
-  color: #e8eef5;
+  background: var(--aws-blue-dark);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .blog .section-title {
@@ -11,7 +11,7 @@
 
 .blog-subtitle {
   text-align: center;
-  color: #9cb3d1;
+  color: rgba(255, 255, 255, 0.8);
   max-width: 720px;
   margin: 0 auto 32px auto;
   line-height: 1.6;
@@ -24,17 +24,17 @@
 }
 
 .blog-card {
-  background: linear-gradient(145deg, #0f1d31, #0c1727);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(145deg, var(--aws-blue), var(--aws-blue-dark));
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 30px rgba(19, 25, 33, 0.25);
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .blog-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 190, 255, 0.4);
+  border-color: rgba(255, 153, 0, 0.35);
 }
 
 .blog-meta {
@@ -42,7 +42,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 8px;
-  color: #8da7c5;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
 }
 
@@ -53,9 +53,9 @@
 }
 
 .blog-tag {
-  background: rgba(0, 190, 255, 0.12);
-  color: #7dd8ff;
-  border: 1px solid rgba(0, 190, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 4px 8px;
   border-radius: 10px;
   font-size: 0.8rem;
@@ -63,24 +63,26 @@
 
 .blog-card h3 {
   margin: 10px 0 8px 0;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .blog-card p {
   margin: 0 0 14px 0;
-  color: #c9d6e5;
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
 }
 
 .blog-content {
   margin: 8px 0 12px 0;
-  color: #c9d6e5;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.8;
+  max-width: 720px;
+  font-weight: 300;
 }
 
 .blog-link {
-  color: #0c223a;
-  background: #7dd8ff;
+  color: #111827;
+  background: var(--aws-orange);
   border: none;
   padding: 10px 14px;
   border-radius: 10px;
@@ -90,9 +92,9 @@
 }
 
 .blog-link:hover {
-  background: #b7e8ff;
+  background: rgba(255, 153, 0, 0.9);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 190, 255, 0.25);
+  box-shadow: 0 6px 16px rgba(255, 153, 0, 0.25);
 }
 
 @media (max-width: 600px) {

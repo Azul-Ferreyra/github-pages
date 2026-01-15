@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import './CookieConsent.css'
+import './ConsentBanner.css'
 
-function CookieConsent() {
+function ConsentBanner() {
   const [showConsent, setShowConsent] = useState(false)
   const [analyticsEnabled, setAnalyticsEnabled] = useState(false)
 
@@ -106,4 +106,4 @@ function CookieConsent() {
   )
 }
 
-export default CookieConsent
+export default ConsentBanner

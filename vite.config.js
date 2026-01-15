@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // Base para GitHub Pages en ruta /github-pages/
-  base: '/github-pages/',
+  base: '/',
+  // base: '/github-pages/', // Para GitHub Pages en ruta /github-pages/
   build: {
     // Minificar y optimizar
     minify: 'terser',

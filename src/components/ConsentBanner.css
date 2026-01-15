@@ -6,7 +6,7 @@
   background: var(--aws-blue);
   color: var(--aws-white);
   padding: 1.5rem;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -4px 20px rgba(19, 25, 33, 0.15);
   z-index: 1000;
   border-top: 3px solid var(--aws-orange);
 }

@@ -1,15 +1,12 @@
 import { useEffect, Component } from 'react'
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import Experience from './components/Experience'
-import Content from './components/Content'
-import Projects from './components/Projects'
-import Blog from './components/Blog'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
-import CookieConsent from './components/CookieConsent'
+import ConsentBanner from './components/ConsentBanner'
+import HomePage from './pages/HomePage'
+import EspacioMantis from './pages/EspacioMantis'
+import BlogTecnico from './pages/BlogTecnico'
 import { initGA, trackPageView } from './analytics'
 
 // Error Boundary para capturar errores de React
@@ -64,7 +61,9 @@ class ErrorBoundary extends Component {
   }
 }
 
-function App() {
+function Layout() {
+  const location = useLocation()
+
   useEffect(() => {
     // Configuración de seguridad global
     const handleGlobalError = (event) => {
@@ -133,37 +132,46 @@ function App() {
 
   // Tracking automático de rutas para SPA
   useEffect(() => {
-    // Track initial page load
-    trackPageView(window.location.pathname + window.location.search)
+    trackPageView(location.pathname + location.search + location.hash)
+  }, [location])
 
-    // Track route changes (para navegación interna)
-    const handleRouteChange = () => {
-      trackPageView(window.location.pathname + window.location.search)
+  // Scroll a anclas y reinicio de scroll en cambios de ruta
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = location.hash.replace('#', '')
+      window.setTimeout(() => {
+        const element = document.getElementById(targetId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 0)
+      return
     }
 
-    // Escuchar cambios en el hash (navegación por anclas)
-    window.addEventListener('hashchange', handleRouteChange)
-
-    return () => {
-      window.removeEventListener('hashchange', handleRouteChange)
-    }
-  }, [])
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [location])
 
   return (
     <ErrorBoundary>
       <div className="App">
         <Header />
-        <Hero />
-        <Services />
-        <Experience />
-        <Content />
-        <Projects />
-        <Blog />
-        <Contact />
+        <Outlet />
         <Footer />
-        <CookieConsent />
+        <ConsentBanner />
       </div>
     </ErrorBoundary>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="espacio-mantis" element={<EspacioMantis />} />
+        <Route path="blog" element={<BlogTecnico />} />
+      </Route>
+    </Routes>
   )
 }
 

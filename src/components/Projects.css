@@ -135,7 +135,7 @@
   position: absolute;
   bottom: 8px;
   right: 8px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(19, 25, 33, 0.75);
   color: var(--aws-white);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
