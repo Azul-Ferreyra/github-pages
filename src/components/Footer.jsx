@@ -2,6 +2,7 @@ import './Footer.css'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
+  const basePath = import.meta.env.BASE_URL
 
   return (
     <footer className="footer">
@@ -16,22 +17,22 @@ function Footer() {
           <div className="footer-section">
             <h4>Explora</h4>
             <div className="social-links">
-              <a href="/blog#logs">Los Logs (Blog)</a>
-              <a href="/espacio-mantis#eventos">Radar de Eventos</a>
-              <a href="/espacio-mantis#cultura-tecnologica">Comunidades Activas</a>
-              <a href="/espacio-mantis#becas">Oportunidades &amp; Becas</a>
-              <a href="/espacio-mantis#noticias">Mantis Intelligence</a>
-              <a href="/#videos">Contenido Destacado</a>
+              <a href={`${basePath}blog#logs`}>Los Logs (Blog)</a>
+              <a href={`${basePath}espacio-mantis#eventos`}>Radar de Eventos</a>
+              <a href={`${basePath}espacio-mantis#cultura-tecnologica`}>Comunidades Activas</a>
+              <a href={`${basePath}espacio-mantis#becas`}>Oportunidades &amp; Becas</a>
+              <a href={`${basePath}espacio-mantis#noticias`}>Mantis Intelligence</a>
+              <a href={`${basePath}#videos`}>Contenido Destacado</a>
             </div>
           </div>
 
           <div className="footer-section">
             <h4>Mujeres en Tech</h4>
             <div className="social-links">
-              <a href="/espacio-mantis#faq">FAQ de Carreras</a>
-              <a href="/espacio-mantis#becas">Becas Santander</a>
-              <a href="/espacio-mantis#becas">Recursos IA</a>
-              <a href="/espacio-mantis#becas">Mentorías</a>
+              <a href={`${basePath}espacio-mantis#faq`}>FAQ de Carreras</a>
+              <a href={`${basePath}espacio-mantis#becas`}>Becas Santander</a>
+              <a href={`${basePath}espacio-mantis#becas`}>Recursos IA</a>
+              <a href={`${basePath}espacio-mantis#becas`}>Mentorías</a>
             </div>
           </div>
 
@@ -52,7 +53,7 @@ function Footer() {
               </a>
             </div>
             <p>
-              <a href="/#contact">info.anzur@gmail.com</a>
+              <a href={`${basePath}#contact`}>info.anzur@gmail.com</a>
             </p>
           </div>
         </div>
