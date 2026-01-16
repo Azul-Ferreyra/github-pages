@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
-  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '')
 
   return (
     <footer className="footer">
@@ -17,22 +17,28 @@ function Footer() {
           <div className="footer-section">
             <h4>Explora</h4>
             <div className="social-links">
-              <a href={`${basePath}/blog#logs`}>Los Logs (Blog)</a>
-              <a href={`${basePath}/espacio-mantis#eventos`}>Radar de Eventos</a>
-              <a href={`${basePath}/espacio-mantis#cultura-tecnologica`}>Comunidades Activas</a>
-              <a href={`${basePath}/espacio-mantis#becas`}>Oportunidades &amp; Becas</a>
-              <a href={`${basePath}/espacio-mantis#noticias`}>Mantis Intelligence</a>
-              <a href={`${basePath}/#videos`}>Contenido Destacado</a>
+              <Link to={{ pathname: '/blog', hash: '#logs' }}>Los Logs (Blog)</Link>
+              <Link to={{ pathname: '/espacio-mantis', hash: '#eventos' }}>Radar de Eventos</Link>
+              <Link to={{ pathname: '/espacio-mantis', hash: '#cultura-tecnologica' }}>
+                Comunidades Activas
+              </Link>
+              <Link to={{ pathname: '/espacio-mantis', hash: '#becas' }}>
+                Oportunidades &amp; Becas
+              </Link>
+              <Link to={{ pathname: '/espacio-mantis', hash: '#noticias' }}>
+                Mantis Intelligence
+              </Link>
+              <Link to={{ pathname: '/', hash: '#videos' }}>Contenido Destacado</Link>
             </div>
           </div>
 
           <div className="footer-section">
             <h4>Mujeres en Tech</h4>
             <div className="social-links">
-              <a href={`${basePath}/espacio-mantis#faq`}>FAQ de Carreras</a>
-              <a href={`${basePath}/espacio-mantis#becas`}>Becas Santander</a>
-              <a href={`${basePath}/espacio-mantis#becas`}>Recursos IA</a>
-              <a href={`${basePath}/espacio-mantis#becas`}>Mentorías</a>
+              <Link to={{ pathname: '/espacio-mantis', hash: '#faq' }}>FAQ de Carreras</Link>
+              <Link to={{ pathname: '/espacio-mantis', hash: '#becas' }}>Becas Santander</Link>
+              <Link to={{ pathname: '/espacio-mantis', hash: '#becas' }}>Recursos IA</Link>
+              <Link to={{ pathname: '/espacio-mantis', hash: '#becas' }}>Mentorías</Link>
             </div>
           </div>
 
@@ -53,7 +59,7 @@ function Footer() {
               </a>
             </div>
             <p>
-              <a href={`${basePath}/#contact`}>info.anzur@gmail.com</a>
+              <Link to={{ pathname: '/', hash: '#contact' }}>info.anzur@gmail.com</Link>
             </p>
           </div>
         </div>
