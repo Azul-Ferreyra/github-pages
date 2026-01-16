@@ -55,6 +55,7 @@ function EspacioInformativo() {
           data-widget-id="314012"
           data-website="1"
           data-height="auto"
+          data-font="Open+Sans"
         ></div>
       </div>
     </section>
