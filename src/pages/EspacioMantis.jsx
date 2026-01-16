@@ -72,7 +72,7 @@ function EspacioMantis() {
       type: 'Comunidad',
       summary:
         'Millones de mujeres talentosas en America Latina estan listas para reinsertarse o avanzar en sus carreras, justo cuando la inteligencia artificial esta redefiniendo el mundo laboral y el exito depende menos de los titulos y mas de la fluidez digital, la adaptabilidad y las habilidades humanas. En Laboratoria abrimos caminos para que mas mujeres accedan a oportunidades laborales de calidad y, al hacerlo, puedan crecer con autonomia, confianza y proposito.',
-      url: '#'
+      url: 'https://laboratoria.la/'
     },
     {
       title: 'Tecnolochicas',
