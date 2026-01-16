@@ -39,7 +39,8 @@ function MantisFeed() {
           style={{ width: '100%', height: '600px', minHeight: '600px', overflow: 'auto' }}
           data-widget-id="314012"
           data-website="1"
-          data-font="Open+Sans"
+          data-font="Open Sans"
+          data-font-family="Open Sans"
         ></div>
       </div>
     </section>
