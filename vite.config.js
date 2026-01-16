@@ -2,12 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
-const basePath = process.env.VITE_BASE_PATH || '/'
 
 export default defineConfig({
   plugins: [react()],
-  // Base dinámica para soportar root o subpath (GitHub Pages)
-  base: basePath,
+  // Base fija para GitHub Pages en /github-pages/
+  base: '/github-pages/',
   build: {
     // Minificar y optimizar
     minify: 'terser',
