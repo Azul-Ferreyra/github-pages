@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "deploy": "gh-pages -d dist",
+    "build:gh": "set VITE_BASE_PATH=/github-pages/&& vite build",
+    "deploy": "set VITE_BASE_PATH=/github-pages/&& vite build && gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
   },
