@@ -28,37 +28,60 @@
 
 .blog-author {
   padding: 90px 0;
-  background: var(--aws-blue-dark);
+  background: linear-gradient(135deg, var(--aws-blue-dark) 0%, var(--aws-blue) 100%);
 }
 
 .blog-author-grid {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: auto 1fr;
   gap: 2.5rem;
   align-items: center;
 }
 
 .blog-author-photo img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 12px 30px rgba(19, 25, 33, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(19, 25, 33, 0.25);
+  border: 5px solid var(--aws-orange);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-author-photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(19, 25, 33, 0.35), 0 0 20px rgba(255, 153, 0, 0.3);
 }
 
 .blog-author-text h2 {
-  font-size: 2.4rem;
-  color: var(--aws-white);
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 300;
   font-family: 'Amazon Ember', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   margin-bottom: 0.75rem;
+  background: linear-gradient(45deg, var(--aws-orange), #ffb84d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  padding-bottom: 0.25rem;
 }
 
 .blog-author-text p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--aws-gray);
   line-height: 1.8;
   font-size: 1.05rem;
+  margin-top: 1rem;
+}
+
+.blog-author-note {
+  margin: 1.25rem 0 0;
+  padding: 0.9rem 1.1rem;
+  border-left: 4px solid rgba(255, 153, 0, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.6;
 }
 
 .blog-author-divider {
@@ -74,6 +97,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
+  align-items: flex-start;
 }
 
 .blog-tecnico-card {
@@ -85,6 +109,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
 .blog-tecnico-card:hover {
@@ -149,6 +175,50 @@
   line-height: 1.6;
 }
 
+.blog-tecnico-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.6em * 3);
+}
+
+.blog-tecnico-content {
+  border-left: 3px solid rgba(255, 153, 0, 0.6);
+  padding-left: 1rem;
+  max-height: 120px;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  mask-image: linear-gradient(to bottom, #000 75%, transparent);
+}
+
+.blog-tecnico-content-inner {
+  max-height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-right: 0.4rem;
+}
+
+.blog-tecnico-content-inner p {
+  margin: 0;
+}
+
+.blog-tecnico-card.is-open .blog-tecnico-content {
+  max-height: 2000px;
+  mask-image: none;
+}
+
+.blog-tecnico-card.is-open .blog-tecnico-content-inner {
+  max-height: none;
+  overflow-y: visible;
+}
+
+.blog-tecnico-card.is-open {
+  grid-column: 1 / -1;
+}
+
 .blog-tecnico-card .blog-tecnico-meta span {
   color: var(--text-secondary);
 }
@@ -193,6 +263,12 @@
   .blog-author-photo {
     display: flex;
     justify-content: center;
+  }
+
+  .blog-author-photo img {
+    width: 180px;
+    height: 180px;
+    border-width: 4px;
   }
 
   .blog-tecnico-cards {

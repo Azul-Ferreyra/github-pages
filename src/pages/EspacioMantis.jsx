@@ -1,11 +1,53 @@
 import { useState } from 'react'
 import './EspacioMantis.css'
 import EspacioInformativo from '../components/EspacioInformativo'
+import calendarEvents from '../data/calendarEvents.json'
+
+const getFaviconUrl = (value) => {
+  if (!value) return ''
+  try {
+    const url = new URL(value)
+    const hostname = url.hostname.toLowerCase()
+    if (hostname.includes('youtube.com')) {
+      const path = url.pathname.split('/').filter(Boolean)
+      const handle = path[0] === '@' ? path[0].slice(1) : path[0]
+      if (handle?.startsWith('@')) {
+        return `https://unavatar.io/youtube/${handle.slice(1)}?fallback=false`
+      }
+      if (path[0]?.startsWith('@')) {
+        return `https://unavatar.io/youtube/${path[0].slice(1)}?fallback=false`
+      }
+      if (path[0] === 'channel' && path[1]) {
+        return `https://unavatar.io/youtube/${path[1]}?fallback=false`
+      }
+      if (path[0] === 'user' && path[1]) {
+        return `https://unavatar.io/youtube/${path[1]}?fallback=false`
+      }
+    }
+    return `https://www.google.com/s2/favicons?domain=${hostname}&sz=128`
+  } catch (error) {
+    return ''
+  }
+}
+
+const getFallbackColor = (value) => {
+  let hash = 0
+  for (let i = 0; i < value.length; i += 1) {
+    hash = value.charCodeAt(i) + ((hash << 5) - hash)
+  }
+  const hue = Math.abs(hash) % 360
+  return `hsl(${hue} 65% 88%)`
+}
 
 function EspacioMantis() {
   const asset = (filename) => `${import.meta.env.BASE_URL}${filename}`
   const [openFaq, setOpenFaq] = useState(null)
   const [openOpportunity, setOpenOpportunity] = useState(null)
+  const [logoErrors, setLogoErrors] = useState({})
+
+  const handleLogoError = (name) => {
+    setLogoErrors((prev) => ({ ...prev, [name]: true }))
+  }
 
   const opportunities = [
     {
@@ -37,7 +79,7 @@ function EspacioMantis() {
       org: 'Fundacion Televisa',
       type: 'Beca',
       summary:
-        'Tecnolochicas es un programa de Fundacion Televisa enfocado en inspirar y formar a mujeres jovenes de entre 12 y 17 anos en las bases de la programacion y las ciencias computacionales. Su objetivo es ampliar aspiraciones profesionales, fortalecer la confianza y desarrollar habilidades clave para mejorar su empleabilidad futura. Incluye la oportunidad de Gana tu Beca junto a aliados que impulsan un futuro mas inclusivo.',
+        'Tecnolochicas es un programa de Fundacion Televisa enfocado en inspirar y formar a mujeres jovenes de entre 12 y 17 años en las bases de la programacion y las ciencias computacionales. Su objetivo es ampliar aspiraciones profesionales, fortalecer la confianza y desarrollar habilidades clave para mejorar su empleabilidad futura. Incluye la oportunidad de Gana tu Beca junto a aliados que impulsan un futuro mas inclusivo.',
       url: 'https://tecnolochicas.mx/'
     },
     {
@@ -55,6 +97,30 @@ function EspacioMantis() {
       summary:
         'Women Techmakers es un ecosistema de profesionales comprometidos que abogan por una mayor diversidad de género en la tecnología de todo el mundo. A través de la comunidad, visibilidad y recursos.',
       url: 'https://www.technovation.org/women-techmakers/'
+    },
+    {
+      title: 'Cursos de IA por Google para 2026',
+      org: 'Google',
+      type: 'Curso Gratis',
+      summary:
+        'Curso introductorio de microaprendizaje para explicar que es la IA generativa, como se utiliza y en que se diferencia de los metodos de aprendizaje automatico tradicionales. Tambien abarca herramientas de Google para ayudarte a desarrollar tus propias aplicaciones de IA generativa.',
+      url: 'https://www.skills.google/course_templates/539?locale=es'
+    },
+    {
+      title: 'LLM y ajuste de instrucciones por Google',
+      org: 'Google',
+      type: 'Curso Gratis',
+      summary:
+        'Curso introductorio de microaprendizaje sobre que son los modelos de lenguaje grandes (LLM), sus casos de uso y como usar el ajuste de instrucciones para mejorar su rendimiento. Tambien aborda herramientas de Google para crear aplicaciones de IA generativa.',
+      url: 'https://www.skills.google/course_templates/539?locale=es'
+    },
+    {
+      title: 'Vertex AI Studio para IA generativa',
+      org: 'Google',
+      type: 'Curso Gratis',
+      summary:
+        'Curso sobre Vertex AI Studio para interactuar con modelos de IA generativa, crear prototipos y llevarlos a produccion. Incluye un caso de uso inmersivo, lecciones y laboratorio practico para explorar el ciclo de vida del producto, aplicaciones multimodales Gemini, diseno de solicitudes, ingenieria de solicitudes y ajuste de modelos.',
+      url: 'https://www.skills.google/course_templates/552?locale=en'
     }
   ]
 
@@ -63,6 +129,11 @@ function EspacioMantis() {
       question: '¿Cómo puedo comenzar mi camino en Cloud Computing?',
       answer:
         'Empieza con fundamentos de redes, sistemas y seguridad. Luego elige una plataforma (AWS es una gran base), sigue rutas introductorias y practica con laboratorios gratuitos.'
+    },
+    {
+      question: '¿Cómo puedo comenzar a estudiar tecnología de forma autodidacta?',
+      answer:
+        'El primer paso es identificar el rol en el que deseas desempeñarte (Ciberseguridad, DevOps, Nube, etc.), ya que esto te permitirá encontrar rutas de estudio específicas. Puedes utilizar plataformas interactivas como TryHackMe o HackTheBox, o aprovechar el inmenso contenido gratuito en YouTube para estudiar a tu propio ritmo. Sin embargo, lo más importante es animarse a la práctica: crea proyectos reales para consolidar el conocimiento; es ahí donde realmente se aprende.'
     },
     {
       question: '¿Existen comunidades de mujeres en tecnología que me recomiendes?',
@@ -84,24 +155,58 @@ function EspacioMantis() {
   const cultureEvents = [
     { name: 'Ekoparty', label: 'EKO', url: 'https://ekoparty.org/' },
     { name: 'Nerdearla', label: 'NERD', url: 'https://nerdear.la/' },
-    { name: 'RootedCON', label: 'ROOT', url: 'https://www.rootedcon.com/' }
+    { name: 'RootedCON', label: 'ROOT', url: 'https://rootedcon.com/' }
   ]
 
   const cultureCommunities = [
-    { name: 'XSec', label: 'XSEC', url: '#' },
-    { name: 'ElviSec', label: 'ELV', url: '#' },
-    { name: 'Sysarmy', label: 'SYS', url: '#' }
+    {
+      name: 'XSec',
+      label: 'XSEC',
+      url: 'https://xsec.sh/',
+      logoUrl: 'https://www.youtube.com/@XSecComunidad'
+    },
+    {
+      name: 'EvilSec',
+      label: 'EVIL',
+      url: 'https://evil-sec.com/',
+      logoUrl: 'https://www.youtube.com/@EvilSec'
+    },
+    {
+      name: 'Sysarmy',
+      label: 'SYS',
+      url: 'https://sysarmy.com/',
+      logoUrl: 'https://www.youtube.com/@sysarmy'
+    }
   ]
 
+  const formatDate = (value) =>
+    new Date(`${value}T00:00:00`).toLocaleDateString('es-ES', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric'
+    })
+
+  const getEventCutoff = (event) => event.endDate || event.startDate
+
+  const isUpcomingEvent = (event) => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    return new Date(`${getEventCutoff(event)}T00:00:00`) >= today
+  }
+
   const freeResources = [
-    { name: 'Nasseros', label: 'N', category: 'Redes/Hardware', url: '#' },
-    { name: 'Soy Dalto', label: 'SD', category: 'Programación', url: '#' },
-    { name: 'Platzi', label: 'P', category: 'Educación General Tech', url: '#' },
-    { name: 'Ariel DevOps', label: 'AD', category: 'Cloud/DevOps', url: '#' },
-    { name: 'TodoCode', label: 'TC', category: 'Programación/Lógica', url: '#' },
-    { name: 'S4viSinFiltro', label: 'S4', category: 'Hacking/Seguridad', url: '#' },
-    { name: 'Maxi Programa', label: 'MP', category: 'Desarrollo .NET/Lógica', url: '#' },
-    { name: 'DragonJAR', label: 'DJ', category: 'Hacking/Seguridad', url: '#' }
+    { name: 'Nasseros', label: 'N', category: 'Redes/Hardware', url: 'https://www.youtube.com/@naseros' },
+    { name: 'Soy Dalto', label: 'SD', category: 'Programación', url: 'https://www.youtube.com/@soydalto' },
+    { name: 'Platzi', label: 'P', category: 'Educación General Tech', url: 'https://www.youtube.com/@Platzi' },
+    { name: 'Ariel DevOps', label: 'AD', category: 'Cloud/DevOps', url: 'https://www.youtube.com/@arieldevops' },
+    { name: 'TodoCode', label: 'TC', category: 'Programación/Lógica', url: 'https://www.youtube.com/@TodoCode' },
+    { name: 'S4vitar', label: 'S4', category: 'Hacking/Seguridad', url: 'https://www.youtube.com/@s4vitar' },
+    { name: 'Maxi Programa', label: 'MP', category: 'Desarrollo .NET/Lógica', url: 'https://www.youtube.com/@MaxiPrograma' },
+    { name: 'DragonJAR', label: 'DJ', category: 'Hacking/Seguridad', url: 'https://www.youtube.com/@DragonJARtv' },
+    { name: 'HolaMundo', label: 'HM', category: 'Programación', url: 'https://www.youtube.com/@HolaMundoDev' },
+    { name: 'Inteligencia Artificial', label: 'IA', category: 'IA/Contenido', url: 'https://www.youtube.com/@la_inteligencia_artificial' },
+    { name: 'Hack The Box', label: 'HTB', category: 'Practicas', url: 'https://www.hackthebox.com/' },
+    { name: 'TryHackMe', label: 'THM', category: 'Practicas', url: 'https://tryhackme.com/' }
   ]
 
   return (
@@ -137,19 +242,45 @@ function EspacioMantis() {
                   de lo que sucede en el ecosistema tecnológico.
                 </p>
               </div>
-              <div className="calendar-frame">
-                <iframe
-                  title="Calendario Espacio Mantis"
-                  src="https://calendar.google.com/calendar/embed?src=aW5mby5hbnp1ckBnbWFpbC5jb20&mode=MONTH&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
-                  loading="lazy"
-                ></iframe>
+              <div className="mantis-calendar-events">
+                {[...calendarEvents]
+                  .filter(isUpcomingEvent)
+                  .sort((a, b) => b.startDate.localeCompare(a.startDate))
+                  .map((event) => (
+                    <a
+                      key={event.title}
+                      className={`mantis-calendar-event${
+                        event.tag === 'Internacional' ? ' is-international' : ''
+                      }`}
+                      href={event.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <div className="mantis-calendar-event-header">
+                        <span
+                          className={`mantis-calendar-event-tag mantis-calendar-event-tag--${event.tag
+                            .toLowerCase()
+                            .replace(/\s+/g, '-')}`}
+                        >
+                          {event.tag}
+                        </span>
+                        <span className="mantis-calendar-event-date">
+                          {formatDate(event.startDate)}
+                          {event.endDate ? ` · ${formatDate(event.endDate)}` : ''}
+                        </span>
+                      </div>
+                      <h3 className="mantis-calendar-event-title">{event.title}</h3>
+                      <p className="mantis-calendar-event-location">{event.location}</p>
+                      <span className="mantis-calendar-event-link">Ver detalles</span>
+                    </a>
+                  ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mantis-culture">
+      <section id="cultura-tecnologica" className="mantis-culture">
         <div className="container">
           <h2 className="mantis-culture-title">Cultura Tecnológica</h2>
           <p className="mantis-culture-subtitle">
@@ -168,7 +299,16 @@ function EspacioMantis() {
                   rel="noreferrer"
                 >
                   <span className="mantis-culture-logo" aria-hidden="true">
-                    {group.label}
+                    {getFaviconUrl(group.url) && !logoErrors[group.name] ? (
+                      <img
+                        src={getFaviconUrl(group.url)}
+                        alt=""
+                        loading="lazy"
+                        onError={() => handleLogoError(group.name)}
+                      />
+                    ) : (
+                      group.label
+                    )}
                   </span>
                   <span className="mantis-culture-name">{group.name}</span>
                 </a>
@@ -179,20 +319,32 @@ function EspacioMantis() {
           <div className="mantis-culture-row">
             <h3 className="mantis-culture-row-title">Comunidades Activas</h3>
             <div className="mantis-culture-grid">
-              {cultureCommunities.map((group) => (
-                <a
-                  key={group.name}
-                  className="mantis-culture-item"
-                  href={group.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span className="mantis-culture-logo" aria-hidden="true">
-                    {group.label}
-                  </span>
-                  <span className="mantis-culture-name">{group.name}</span>
-                </a>
-              ))}
+              {cultureCommunities.map((group) => {
+                const logoSource = group.logoUrl || group.url
+                return (
+                  <a
+                    key={group.name}
+                    className="mantis-culture-item"
+                    href={group.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="mantis-culture-logo" aria-hidden="true">
+                      {getFaviconUrl(logoSource) && !logoErrors[group.name] ? (
+                        <img
+                          src={getFaviconUrl(logoSource)}
+                          alt=""
+                          loading="lazy"
+                          onError={() => handleLogoError(group.name)}
+                        />
+                      ) : (
+                        group.label
+                      )}
+                    </span>
+                    <span className="mantis-culture-name">{group.name}</span>
+                  </a>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -280,8 +432,21 @@ function EspacioMantis() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span className="mantis-resources-logo" aria-hidden="true">
-                  {resource.label}
+                <span
+                  className="mantis-resources-logo"
+                  aria-hidden="true"
+                  style={{ backgroundColor: getFallbackColor(resource.name) }}
+                >
+                  {getFaviconUrl(resource.url) && !logoErrors[resource.name] ? (
+                    <img
+                      src={getFaviconUrl(resource.url)}
+                      alt=""
+                      loading="lazy"
+                      onError={() => handleLogoError(resource.name)}
+                    />
+                  ) : (
+                    <span className="mantis-resources-logo-text">{resource.label}</span>
+                  )}
                 </span>
                 <span className="mantis-resources-name">{resource.name}</span>
                 <span className="mantis-resources-badge">{resource.category}</span>

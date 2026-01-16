@@ -18,6 +18,7 @@ function Footer() {
             <div className="social-links">
               <a href="/blog#logs">Los Logs (Blog)</a>
               <a href="/espacio-mantis#eventos">Radar de Eventos</a>
+              <a href="/espacio-mantis#cultura-tecnologica">Comunidades Activas</a>
               <a href="/espacio-mantis#becas">Oportunidades &amp; Becas</a>
               <a href="/espacio-mantis#noticias">Mantis Intelligence</a>
               <a href="/#videos">Contenido Destacado</a>

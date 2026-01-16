@@ -1,0 +1,99 @@
+[
+  {
+    "title": "EKOPARTY MIAMI",
+    "startDate": "2026-05-21",
+    "endDate": "2026-05-22",
+    "location": "Miami, Florida, EE. UU.",
+    "url": "https://ekoparty.org/miami/",
+    "tag": "Internacional"
+  },
+  {
+    "title": "¡Primer Security Immersion Day del año AWS!",
+    "startDate": "2026-02-04",
+    "endDate": "2026-02-05",
+    "location": "Virtual",
+    "url": "https://lnkd.in/eXh27KTw",
+    "tag": "Immersion"
+  },
+  {
+    "title": "Founderz & Microsoft",
+    "startDate": "2026-01-20",
+    "endDate": "2026-01-21",
+    "location": "Virtual",
+    "url": "https://www.instagram.com/founderzschool?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    "tag": "Intensivo"
+  },
+  {
+    "title": "Desarrollo de IA para el servicio al cliente",
+    "startDate": "2026-01-28",
+    
+    "location": "Virtual",
+    "url": "https://www.meetup.com/aws-user-group-buenos-aires/events/312809377/?eventOrigin=group_similar_events",
+    "tag": "Webinar"
+  },
+  {
+    "title": "Conectores BA",
+    "startDate": "2026-01-20",
+    
+    "location": "Charlone Cap. Gral. Ramón Freire 745 · Cdad. Autónoma de Buenos Aires",
+    "url": "https://www.meetup.com/buenos-aires-tech-connections/events/312883957/?eventOrigin=group_similar_events",
+    "tag": "Evento"
+  },
+  {
+    "title": "LA BÚSQUEDA",
+    "startDate": "2026-01-28",
+    
+    "location": "Virtual",
+    "url": "https://www.meetup.com/aidatascience-vlc-datamecum/events/312635160/?recId=09390af2-639b-49c3-9a62-e0aa98281e7e&recSource=event-search&searchId=cf06d463-0278-4890-98e2-41e86b87b7a8&eventOrigin=find_page%24all",
+    "tag": "Webinar"
+  },
+  {
+    "title": "Women in AI",
+    "startDate": "2026-01-22",
+    
+    "location": "Virtual",
+    "url": "https://www.meetup.com/barcelona-ai-machine-learning-and-computer-vision-meetup/events/311976437/?recId=6c594c14-357b-418d-8a0f-74e2ef54ab6f&recSource=event-search&searchId=2f45056f-1230-42af-af51-a1c74bb6e3ff&eventOrigin=find_page%24all",
+    "tag": "Webinar"
+  },
+  {
+    "title": "Operaciones de seguridad con Microsoft Security Copilot",
+    "startDate": "2026-01-21",
+    
+    "location": "Virtual",
+    "url": "https://www.meetup.com/es-es/cas-training/events/312863019/?recId=9302060c-cb52-480f-81bf-2086fa25fc3a&recSource=event-search&searchId=d9f5fc3a-fc93-4335-9242-dbcd96789b7b&eventOrigin=find_page%24all",
+    "tag": "Webinar"
+  },
+  {
+    "title": "DevSecCon España en colaboración con Madrid DevOps y HackerDreams ",
+    "startDate": "2026-01-29",
+    
+    "location": "Virtual",
+    "url": "https://www.meetup.com/es-es/devseccon-spain/events/312344196/?recId=11d22063-9986-4e13-9edf-e65b20d35960&recSource=event-search&searchId=91ba329d-0b51-4203-a15f-8a6087c2e8ad&eventOrigin=find_page%24all",
+    "tag": "Webinar"
+  },
+  {
+    "title": "Operaciones de seguridad SIEM con Microsoft Sentinel | Microsoft ",
+    "startDate": "2026-01-19",
+    
+    "location": "Virtual",
+    "url": "https://www.meetup.com/es-es/cas-training/events/312862520/?recId=11d22063-9986-4e13-9edf-e65b20d35960&recSource=event-search&searchId=91ba329d-0b51-4203-a15f-8a6087c2e8ad&eventOrigin=find_page%24all",
+    "tag": "Webinar"
+  },
+  {
+    "title": "Crear agentes con Microsoft Copilot Studio",
+    "startDate": "2026-01-23",
+    
+    "location": "Virtual",
+    "url": "https://www.meetup.com/es-es/cas-training/events/312863189/?recId=11d22063-9986-4e13-9edf-e65b20d35960&recSource=event-search&searchId=91ba329d-0b51-4203-a15f-8a6087c2e8ad&eventOrigin=find_page%24all",
+    "tag": "Webinar"
+  },
+    {
+    "title": "Defensa contra amenazas cibernéticas con Microsoft Defender ",
+    "startDate": "2026-01-22",
+    
+    "location": "Virtual",
+    "url": "https://www.meetup.com/es-es/cas-training/events/312862589/?recId=11d22063-9986-4e13-9edf-e65b20d35960&recSource=event-search&searchId=91ba329d-0b51-4203-a15f-8a6087c2e8ad&eventOrigin=find_page%24all",
+    "tag": "Webinar"
+  }
+]
+
