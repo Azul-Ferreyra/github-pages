@@ -87,13 +87,21 @@
     "url": "https://www.meetup.com/es-es/cas-training/events/312863189/?recId=11d22063-9986-4e13-9edf-e65b20d35960&recSource=event-search&searchId=91ba329d-0b51-4203-a15f-8a6087c2e8ad&eventOrigin=find_page%24all",
     "tag": "Webinar"
   },
-    {
+  {
     "title": "Defensa contra amenazas cibernéticas con Microsoft Defender ",
     "startDate": "2026-01-22",
     
     "location": "Virtual",
     "url": "https://www.meetup.com/es-es/cas-training/events/312862589/?recId=11d22063-9986-4e13-9edf-e65b20d35960&recSource=event-search&searchId=91ba329d-0b51-4203-a15f-8a6087c2e8ad&eventOrigin=find_page%24all",
     "tag": "Webinar"
+  },
+  {
+    "title": "Congreso de Ciberdefensa – Argentina 2026 (CYBER.AR)",
+    "startDate": "16 al 18 de septiembre de 2026",
+    
+    "location": " Ciudad Autónoma de Buenos Aires",
+    "url": "https://lnkd.in/dN2NPCzq",
+    "tag": "Congreso"
   }
 ]
 
